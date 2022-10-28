@@ -23,16 +23,16 @@ MQTTClient ClientMQTT; // Création d'un client MQTT pour l'échange de donnée 
 String Payload = "{"; // Chaine de caractère qui contiendra le message envoyer de l'objet vers thingsboard
 
 // Fonctionnalité de branchement utilisant le protocole MQTT
-String param;
-String method;
+String parametre;
+String methode;
 
 void messageReceived(String &topic, String &payload)
 {
     Serial.print("Received message : ");
-    param = payload.substring(payload.lastIndexOf(":") + 1, payload.indexOf("}"));
-    method = payload.substring(payload.indexOf(":") + 2, payload.indexOf(",") - 1);
-    Serial.println(param);
-    Serial.println("LED Color : " + method);
+    parametre = payload.substring(payload.lastIndexOf(":") + 1, payload.indexOf("}"));
+    methode = payload.substring(payload.indexOf(":") + 2, payload.indexOf(",") - 1);
+    Serial.println(parametre);
+    Serial.println("LED Color : " + methode);
     Serial.println(payload);
     Serial.println(topic);
 }
